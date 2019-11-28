@@ -1,0 +1,23 @@
+.content{
+    display: flex;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+h1{
+    text-align: center;
+}
+.search-result{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#icon{
+    width: 100px;
+}
