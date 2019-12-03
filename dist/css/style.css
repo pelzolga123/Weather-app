@@ -4,6 +4,11 @@
     margin-left: auto;
     margin-right: auto;
 }
+body{
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px;
+}
 .main{
     display: flex;
     flex-direction: column;
