@@ -13,13 +13,21 @@ const getWeather = (latitude, longtitude) => {
 
   fetch(fetchUrl)
     .then((data) => data.json()).then((data) => {
-      console.log(data.currently);
       temperature.innerHTML = `${data.currently.temperature}&#8457;`;
       getIcon(data.currently.icon);
-      switchBtn(temperature, data.currently.temperature);
+      clear(temperature, data.currently.temperature);
     })
     .catch((err) => err);
+};
 
+const clear = (temperature, value) => {
+  const removeBtn = document.getElementById('remove');
+  const check = document.body.contains(removeBtn);
+  if (check) {
+    document.parentNode.removeChild(removeBtn);
+  } else {
+    switchBtn(temperature, value);
+  }
 };
 
 const getCoordinates = (city) => {
@@ -46,7 +54,6 @@ renderItem();
 const getInput = () => {
   const getBtn = document.getElementById('getWeather');
   const request = document.getElementById('city');
-
   getBtn.addEventListener('click', (e) => {
     e.preventDefault();
     getCoordinates(request.value);
@@ -61,22 +68,25 @@ const countCelsius = (fahrenheit) => {
 const switchBtn = (header, value) => {
   const btn = document.createElement('button');
   const parentDiv = document.getElementById('res');
+  const getHeader = header;
   btn.innerHTML = '&#8451;';
-  btn.setAttribute('class', 'btn btn-primary');
+  btn.setAttribute('class', 'btn btn-primary switch');
+  btn.setAttribute('id', 'remove');
 
-  parentDiv.appendChild(btn);
+  console.log(value);
 
   btn.addEventListener('click', (e) => {
     e.preventDefault();
 
     if (btn.innerHTML === '℃') {
       btn.innerHTML = '&#8457;';
-      header.innerHTML = `${countCelsius(value)}&#8451;`;
+      getHeader.innerHTML = `${countCelsius(value)}&#8451;`;
     } else if (btn.innerHTML === '℉') {
       btn.innerHTML = '&#8451;';
-      header.innerHTML = `${value}&#8457;`;
+      getHeader.innerHTML = `${value}&#8457;`;
     }
   });
+  parentDiv.appendChild(btn);
 };
 
 getInput();
