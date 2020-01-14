@@ -43,3 +43,6 @@ h1{
 #icon{
     width: 100px;
 }
+.hidden {
+    display: none;
+}

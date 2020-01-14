@@ -1,9 +1,40 @@
-
 const getIcon = (currentIcon) => {
   // eslint-disable-next-line no-undef
   const icon = new Skycons({ color: 'orange' });
   icon.set('icon', currentIcon);
   icon.play();
+};
+const requests = [];
+
+const countCelsius = (fahrenheit) => {
+  const celsius = Math.round((fahrenheit - 32) * (5 / 9));
+  return celsius;
+};
+
+const switchBtn = (header, value) => {
+  const btn = document.createElement('button');
+  const parentDiv = document.getElementById('res');
+  const getHeader = header;
+  btn.innerHTML = '&#8451;';
+  btn.setAttribute('class', 'btn btn-primary switch');
+  btn.setAttribute('id', `${value}`);
+
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    if (btn.innerHTML === '℃') {
+      btn.innerHTML = '&#8457;';
+      getHeader.innerHTML = `${countCelsius(value)}&#8451;`;
+    } else if (btn.innerHTML === '℉') {
+      btn.innerHTML = '&#8451;';
+      getHeader.innerHTML = `${value}&#8457;`;
+    }
+  });
+  parentDiv.appendChild(btn);
+};
+const removeBtn = (value) => {
+  const btn = document.getElementById(value);
+  btn.setAttribute('class', 'hidden');
 };
 
 const getWeather = (latitude, longtitude) => {
@@ -15,19 +46,14 @@ const getWeather = (latitude, longtitude) => {
     .then((data) => data.json()).then((data) => {
       temperature.innerHTML = `${data.currently.temperature}&#8457;`;
       getIcon(data.currently.icon);
-      clear(temperature, data.currently.temperature);
+      switchBtn(temperature, data.currently.temperature);
+      requests.push(data.currently.temperature);
+      if (requests.length === 2) {
+        removeBtn(requests[0]);
+        requests.shift();
+      }
     })
     .catch((err) => err);
-};
-
-const clear = (temperature, value) => {
-  const removeBtn = document.getElementById('remove');
-  const check = document.body.contains(removeBtn);
-  if (check) {
-    document.parentNode.removeChild(removeBtn);
-  } else {
-    switchBtn(temperature, value);
-  }
 };
 
 const getCoordinates = (city) => {
@@ -50,7 +76,6 @@ function renderItem() {
 
 renderItem();
 
-
 const getInput = () => {
   const getBtn = document.getElementById('getWeather');
   const request = document.getElementById('city');
@@ -58,35 +83,6 @@ const getInput = () => {
     e.preventDefault();
     getCoordinates(request.value);
   });
-};
-
-const countCelsius = (fahrenheit) => {
-  const celsius = Math.round((fahrenheit - 32) * (5 / 9));
-  return celsius;
-};
-
-const switchBtn = (header, value) => {
-  const btn = document.createElement('button');
-  const parentDiv = document.getElementById('res');
-  const getHeader = header;
-  btn.innerHTML = '&#8451;';
-  btn.setAttribute('class', 'btn btn-primary switch');
-  btn.setAttribute('id', 'remove');
-
-  console.log(value);
-
-  btn.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    if (btn.innerHTML === '℃') {
-      btn.innerHTML = '&#8457;';
-      getHeader.innerHTML = `${countCelsius(value)}&#8451;`;
-    } else if (btn.innerHTML === '℉') {
-      btn.innerHTML = '&#8451;';
-      getHeader.innerHTML = `${value}&#8457;`;
-    }
-  });
-  parentDiv.appendChild(btn);
 };
 
 getInput();
