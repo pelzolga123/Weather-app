@@ -2,6 +2,8 @@
 
 ## About The Project
 
+![image](https://user-images.githubusercontent.com/20416431/72342263-c2f4a100-36d4-11ea-9d4b-e5bdd750e7e5.png)
+
 This Weather app uses Dark SKY API to display current weather in any city of Europe. Unsplash API is used for background images.
 
 ## Live version
