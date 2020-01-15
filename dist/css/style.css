@@ -1,0 +1,48 @@
+.content{
+    display: flex;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+}
+body{
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px;
+}
+.main{
+    width:30%;
+    display: flex;
+    flex-direction: column;
+    padding:10px;
+    font-size:18px;
+}
+.info{
+    width:25%;
+    display: flex;
+    flex-direction: column;
+    padding:10px;
+    font-size:18px;
+}
+.quote{
+    display: flex;
+    flex-direction: column;
+    width:25%;
+    text-align: center;
+    padding:10px;
+    font-size:18px;
+}
+h1{
+    text-align: center;
+}
+.search-result{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#icon{
+    width: 100px;
+}
+.hidden {
+    display: none;
+}
