@@ -7,7 +7,7 @@
 This Weather app uses Dark SKY API to display current weather in any city of Europe. Unsplash API is used for background images.
 
 ## Live version
-[Weather App](https://pelzolga123.github.io/Restaurant/)
+[Weather App](https://pelzolga123.github.io/Weather-app/)
 
 ### Built With
 * HTML5

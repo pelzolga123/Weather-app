@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/pelzolga123/Weather-app/issues"
   },
-  "homepage": "https://github.com/pelzolga123/Weather-app",
+  "homepage": "https://pelzolga123.github.com/Weather-app",
   "devDependencies": {
     "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
