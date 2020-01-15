@@ -21,7 +21,7 @@ This Weather app uses Dark SKY API to display current weather in any city of Eur
 
 * Clone project
 ```
-git clone https://github.com/pelzolga123/Restaurant.git
+git clone https://github.com/pelzolga123/Weather-app.git
 ```
 * Install dependencies
 ```
