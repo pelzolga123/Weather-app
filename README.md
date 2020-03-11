@@ -36,7 +36,7 @@ Then open index.html in browser.
 ## Author
 👤 **Olga pelts**
    - Github: [@pelzolga123](https://github.com/pelzolga123)
-   - LinkedIn: [Olgapelz](https://www.linkedin.com/in/olga-pelts/)
+   - LinkedIn: [Olga Pelts](https://www.linkedin.com/in/olga-pelts/)
 
 ## 🤝 Contributing
 
