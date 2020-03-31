@@ -31,7 +31,7 @@ npm install
 ```
 npm run build
 ```
-Then open index.html in browser.
+Then open index.html in the browser.
 
 ## Author
 👤 **Olga pelts**
